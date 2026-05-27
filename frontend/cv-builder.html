@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Cv Builder</title>
+
+  <link rel="stylesheet" href="css.css/style.css">
+
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="box">
+
+    <h1>CV Builder</h1>
+
+    <select id="template">
+
+      <option value="modern">
+        Modern (Free)
+      </option>
+
+      <option value="simple">
+        Simple (Free)
+      </option>
+
+      <option value="pro">
+        Professional (Premium)
+      </option>
+
+    </select>
+
+    <input type="text" id="name" placeholder="Full Name">
+
+    <input type="text" id="phone" placeholder="Phone">
+
+    <textarea id="education" placeholder="Education"></textarea>
+
+    <textarea id="skills" placeholder="Skills"></textarea>
+
+    <textarea id="experience" placeholder="Experience"></textarea>
+
+    <button onclick="saveCV()">
+      Save CV
+    </button>
+
+    <button onclick="downloadCV()">
+      Download PDF
+    </button>
+
+    <button onclick="generateAISummary()">
+      🤖 Generate AI Summary
+    </button>
+
+    <button onclick="payWithPaystack()">
+      Upgrade to Premium
+    </button>
+
+    <button onclick="shareApp()">
+      Invite Friends
+    </button>
+
+  </div>
+
+</div>
+
+<script type="module" src="java.js/cv.js"></script>
+
+<script type="module" src="java.js/payment.js"></script>
+
+<script type="module" src="java.js/ai.js"></script>
+
+<script type="module" src="java.js/referral.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script src="java.js/pdf.js"></script>
+
+</body>
+</html>
