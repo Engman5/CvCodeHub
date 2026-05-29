@@ -1,0 +1,338 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens and small utilities */
+:root {
+    --brand: #3366ff;
+    --text: #0f1724;
+    --text-rgb: 15, 23, 42;
+    --muted: rgba(15, 23, 42, 0.65);
+    --muted-weak: rgba(15, 23, 42, 0.45);
+    --input-bg: rgba(255, 255, 255, 0.92);
+    --card-border: rgba(15, 23, 42, 0.08);
+    --bg-gradient: radial-gradient(circle at 10% 15%, rgba(96, 165, 250, 0.28), transparent 20%), radial-gradient(circle at 92% 18%, rgba(248, 113, 113, 0.16), transparent 18%), linear-gradient(180deg, #fffbff 0%, #eef2ff 100%);
+    --card-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(240, 245, 255, 0.96));
+    --btn-border: rgba(37, 99, 235, 0.3);
+    --btn-bg: rgba(255, 255, 255, 0.96);
+    --btn-hover-bg: rgba(59, 130, 246, 0.24);
+    --btn-text: #0f1724;
+    --btn-ghost-bg: rgba(15, 23, 42, 0.08);
+    --btn-ghost-hover: rgba(15, 23, 42, 0.22);
+    --btn-secondary-bg: rgba(59, 130, 246, 0.14);
+    --cta-bg: linear-gradient(90deg, #1d4ed8 0%, #4338ca 100%);
+    --cta-text: #0f1724;
+    --cta-shadow: 0 16px 40px rgba(37, 99, 235, 0.26), 0 10px 22px rgba(67, 56, 202, 0.24);
+}
+
+.theme-dark {
+    --brand: #3366ff;
+    --text: #e6eef9;
+    --text-rgb: 230, 238, 249;
+    --muted: rgba(230, 238, 249, 0.78);
+    --muted-weak: rgba(230, 238, 249, 0.56);
+    --input-bg: rgba(255, 255, 255, 0.04);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --bg-gradient: radial-gradient(circle at 14% 14%, rgba(56, 189, 248, 0.24), transparent 20%), radial-gradient(circle at 86% 22%, rgba(168, 85, 247, 0.18), transparent 22%), linear-gradient(180deg, #040b17 0%, #0b1730 100%);
+    --card-bg: linear-gradient(180deg, rgba(12, 20, 35, 0.96), rgba(15, 25, 42, 0.92));
+    --btn-border: rgba(56, 189, 248, 0.28);
+    --btn-bg: rgba(15, 23, 42, 0.78);
+    --btn-hover-bg: rgba(168, 85, 247, 0.22);
+    --btn-text: #e6eef9;
+    --btn-ghost-bg: rgba(255, 255, 255, 0.06);
+    --btn-ghost-hover: rgba(255, 255, 255, 0.16);
+    --btn-secondary-bg: rgba(255, 255, 255, 0.1);
+    --cta-bg: linear-gradient(90deg, #06b6d4 0%, #7c3aed 100%);
+    --cta-text: #ffffff;
+    --cta-shadow: 0 12px 40px rgba(6, 182, 212, 0.22), 0 6px 20px rgba(124, 58, 237, 0.12);
+}
+
+.text-white {
+    color: var(--text);
+}
+
+.theme-dark .text-white {
+    color: white;
+}
+
+.text-white\/90 {
+    color: rgba(var(--text-rgb), 0.9);
+}
+
+.theme-dark .text-white\/90 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.text-white\/80 {
+    color: rgba(var(--text-rgb), 0.8);
+}
+
+.theme-dark .text-white\/80 {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.text-gray-600 {
+    color: var(--muted);
+}
+
+.theme-dark .text-gray-600 {
+    color: rgba(230, 238, 249, 0.75);
+}
+
+.text-gray-200\/90 {
+    color: rgba(15, 23, 42, 0.75);
+}
+
+.theme-dark .text-gray-200\/90 {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.border-gray-100 {
+    border-color: rgba(15, 23, 42, 0.14) !important;
+}
+
+.theme-dark .border-gray-100 {
+    border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.border-white\/6 {
+    border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+.theme-dark .border-white\/6 {
+    border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+.bg-transparent {
+    background: var(--input-bg) !important;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px solid var(--btn-border);
+    border-radius: 14px;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    padding: 0.75rem 1rem;
+    transition: background 220ms ease, color 220ms ease, border-color 220ms ease, transform 220ms ease;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: var(--btn-hover-bg);
+}
+
+.btn-secondary {
+    background: var(--btn-secondary-bg);
+}
+
+.btn-ghost {
+    background: var(--btn-ghost-bg);
+    border-color: transparent;
+}
+
+.btn-ghost:hover {
+    background: var(--btn-ghost-hover);
+}
+
+html,
+body,
+#root {
+    height: 100%
+}
+
+body {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background: var(--bg-gradient);
+    color: var(--text);
+    /* subtle vignette to improve center contrast */
+    background-blend-mode: overlay, normal;
+}
+
+/* subtle container */
+.app-shell {
+    max-width: 1200px;
+    margin: 24px auto;
+    padding: 0 16px
+}
+
+/* small helper for card hover depth */
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--tw-shadow, 0 12px 34px rgba(15, 23, 42, 0.08));
+}
+
+/* App container */
+.app-shell {
+    max-width: 1200px;
+    margin: 28px auto;
+    padding: 0 18px;
+}
+
+/* Glass card base */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 18px 50px rgba(12, 14, 20, 0.18), inset 0 -2px 8px rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    color: var(--text);
+}
+
+/* Hover lift */
+.card-hover {
+    transition: transform 360ms cubic-bezier(.2, .9, .3, 1), box-shadow 360ms cubic-bezier(.2, .9, .3, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 36px 80px rgba(12, 14, 20, 0.5);
+}
+
+/* Glow focus outline */
+.glow-focus:focus {
+    box-shadow: 0 8px 30px rgba(108, 92, 231, 0.18), 0 0 0 6px rgba(108, 92, 231, 0.08);
+    outline: none;
+}
+
+/* CTA shimmer and pop */
+.cta {
+    background: var(--cta-bg);
+    color: var(--cta-text) !important;
+    box-shadow: var(--cta-shadow);
+    border-radius: 14px;
+}
+
+.cta.shimmer {
+    background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.18) 20%, rgba(255, 255, 255, 0.08) 40%, rgba(255, 255, 255, 0.02) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s linear infinite;
+}
+
+/* subtle floating artwork behind header */
+.hero-glow {
+    position: absolute;
+    left: -6%;
+    top: -10%;
+    width: 480px;
+    height: 380px;
+    background: radial-gradient(closest-side, rgba(108, 92, 231, 0.18), transparent 40%), radial-gradient(closest-side, rgba(0, 229, 168, 0.08), transparent 30%);
+    filter: blur(40px);
+    pointer-events: none;
+    transform: translateZ(0);
+}
+
+/* Entrance animation utility */
+.animate-fade-up {
+    animation: fade-up 420ms cubic-bezier(.2, .9, .3, 1) both;
+}
+
+/* small helpers */
+.muted {
+    color: rgba(230, 238, 249, 0.8);
+}
+
+/* Animated background layers for depth and movement */
+.bg-animated {
+    background-image: radial-gradient(600px 400px at 85% 20%, rgba(108, 92, 231, 0.12), transparent 20%), radial-gradient(420px 300px at 15% 70%, rgba(0, 229, 168, 0.06), transparent 20%);
+    animation: bgShift 12s linear infinite;
+}
+
+@keyframes bgShift {
+    0% {
+        transform: translateZ(0) translate(0, 0)
+    }
+
+    50% {
+        transform: translateZ(0) translate(-12px, 8px)
+    }
+
+    100% {
+        transform: translateZ(0) translate(0, 0)
+    }
+}
+
+/* Magnetic CTA: subtle follow on mouse movement */
+.magnetic {
+    position: relative;
+    overflow: hidden;
+}
+
+.magnetic .magnet-inner {
+    transition: transform 220ms cubic-bezier(.2, .9, .3, 1);
+    will-change: transform;
+}
+
+/* Confetti burst (created via JS) */
+.confetti-piece {
+    position: fixed;
+    width: 10px;
+    height: 14px;
+    border-radius: 2px;
+    opacity: 0.95;
+    pointer-events: none;
+    transform-origin: center;
+    animation: confetti-fall 1.2s cubic-bezier(.2, .85, .32, 1) forwards;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(0) rotate(0) scale(1)
+    }
+
+    100% {
+        transform: translateY(380px) rotate(520deg) scale(.9);
+        opacity: 0
+    }
+}
+
+/* Preview tilt on hover for depth */
+.tilt:hover {
+    transform: perspective(700px) rotateX(4deg) rotateY(-6deg) translateY(-6px);
+    transition: transform 420ms cubic-bezier(.2, .9, .3, 1);
+}
+
+/* Strong display heading */
+.font-display {
+    font-family: Poppins, Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto;
+    color: var(--text);
+}
+
+/* Form controls improved contrast */
+input,
+textarea,
+select {
+    background: var(--input-bg);
+    color: var(--text);
+    border: 1px solid var(--card-border);
+    padding: 10px 12px;
+    border-radius: 10px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--muted-weak);
+}
+
+.label-strong {
+    color: var(--muted);
+    font-size: 0.85rem
+}
+
+.muted {
+    color: var(--muted)
+}
+
+.preview-body {
+    color: var(--muted-weak)
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text);
+    border: 1px solid var(--card-border)
+}
